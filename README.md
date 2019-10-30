@@ -17,9 +17,9 @@
 ```
 #!/bin/bash
 if [ ! -d bin ]; then
-    mkdir bin;cd bin;git clone git@gitlab.platform.xbyorange.com:xbyorange/xeda/xeda-integrations-utils.git;cd -
+    mkdir bin;cd bin;git clone git@gitlab.platform.xbyorange.com:xbyorange/xeda/integration-tests-utils.git;cd -
 fi
-./bin/xeda-integrations-utils/xint.sh $*
+./bin/integration-tests-utils/xint.sh $*
 ```
 - To install and start environment run: 
 

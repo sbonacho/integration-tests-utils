@@ -2,7 +2,7 @@
 
 . ~/.sdkman/bin/sdkman-init.sh
 
-source bin/xeda-integrations-utils/env.sh
+source bin/integration-tests-utils/env.sh
 
 if [ "`echo ${REPOS}|grep ?go`" != "" ]; then
     REPOS="${REPOS}
@@ -74,4 +74,4 @@ cd -
 if [ "`docker network ls|grep xeda-local`" =  "" ]; then
     docker network create xeda-local
 fi
-docker-compose -f docker-compose.yml -f bin/xeda-integrations-utils/docker-compose.yml up -d
+docker-compose -f docker-compose.yml -f bin/integration-tests-utils/docker-compose.yml up -d

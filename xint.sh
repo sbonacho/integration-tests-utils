@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UTILS_DIR=xeda-integrations-utils
+UTILS_DIR=integration-tests-utils
 
 configure() {
     if [ ! -e config/karate-config.js ]; then
@@ -17,7 +17,7 @@ start() {
 }
 
 stop() {
-    docker-compose -f docker-compose.yml -f bin/xeda-integrations-utils/docker-compose.yml down -v
+    docker-compose -f docker-compose.yml -f bin/integration-tests-utils/docker-compose.yml down -v
 }
 
 runTest(){
