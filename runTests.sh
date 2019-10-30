@@ -21,7 +21,14 @@ if [ "$SMOKE_URL" != "" ]; then
         sleep 5
     done
 else
-    echo "No variable SMOKE_URL is defined in env.sh. You have to define it in order to wait to the environment availability"
+    echo "
+
+    **********************************************************************
+    No variable SMOKE_URL is defined in env.sh.
+    You have to define SMOKE_URL in order to wait for the environment availability
+    **********************************************************************
+
+    "
 fi
 
 for epic in `ls ${TESTS_DIR}`; do

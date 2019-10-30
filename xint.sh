@@ -33,7 +33,6 @@ runTest(){
 
         "
         fi
-
         if [ ! -d tests ]; then
             echo "
 
