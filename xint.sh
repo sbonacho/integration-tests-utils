@@ -63,5 +63,6 @@ case $1 in
     *)
         configure
         start
+        runTest
      ;;
 esac
