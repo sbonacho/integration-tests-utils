@@ -16,10 +16,10 @@
 
 ```
 #!/bin/bash
-if [ ! -d bin ]; then
-    mkdir bin;cd bin;git clone https://github.com/sbonacho/integration-tests-utils.git;cd -
+if [ ! -d target/3rd/integration-tests-utils ]; then
+    mkdir -p target/3rd/;cd target/3rd/;git clone https://github.com/sbonacho/integration-tests-utils.git;cd -
 fi
-./bin/integration-tests-utils/xint.sh $*
+./target/3rd/integration-tests-utils/xint.sh $*
 ```
 - To install and start environment run: 
 
