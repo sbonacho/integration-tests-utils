@@ -37,7 +37,7 @@ services:
     image: mailgun/kafka-pixy:latest
     restart: on-failure
     volumes:
-    - ./bin/integration-tests-utils/config/kafka-pixy.yaml:/etc/kafka-pixy.yaml
+    - ./target/3rd/integration-tests-utils/config/kafka-pixy.yaml:/etc/kafka-pixy.yaml
     command: --config /etc/kafka-pixy.yaml
     ports:
     - "19091:19091"

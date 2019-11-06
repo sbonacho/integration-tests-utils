@@ -7,9 +7,9 @@ clear () {
     done
 }
 
-docker-compose -f docker-compose.yml -f bin/integration-tests-utils/docker-compose.yml down -v
+docker-compose -f docker-compose.yml -f target/3rd/integration-tests-utils/docker-compose.yml down -v
 rm -rf target
 rm -rf data-mongo
 
 clear docker-compose.yml
-clear bin/integration-tests-utils/docker-compose.yml
+clear target/3rd/integration-tests-utils/docker-compose.yml

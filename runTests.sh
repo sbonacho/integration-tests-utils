@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source bin/integration-tests-utils/env.sh
+source target/3rd/integration-tests-utils/env.sh
 
 docker exec -it mongodb mongo -u ${MONGO_USER} -p ${MONGO_PASS} ${MONGO_DB} --eval "${DROP_DATABASES}"
 

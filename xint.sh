@@ -17,7 +17,7 @@ start() {
 }
 
 stop() {
-    docker-compose -f docker-compose.yml -f bin/integration-tests-utils/docker-compose.yml down -v
+    docker-compose -f docker-compose.yml -f target/3rd/integration-tests-utils/docker-compose.yml down -v
 }
 
 runTest(){
