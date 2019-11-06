@@ -9,10 +9,12 @@ if [ "`echo ${REPOS}|grep ?go`" != "" ]; then
 git@gitlab.com:OrangeX/System/tools/golang-kafka-image.git?master?dockerbuild"
 fi
 
-docker login ${GITLAB_HOST}
-if [ "$?" -ne 0 ]; then
-    echo "must to be logged on ${GITLAB_HOST}"
-    exit -1
+if [ "${GITLAB_HOST}" != "" ]; then
+    docker login ${GITLAB_HOST}
+    if [ "$?" -ne 0 ]; then
+        echo "must to be logged on ${GITLAB_HOST}"
+        exit -1
+    fi
 fi
 
 if [ ! -d $TARGET ]; then
