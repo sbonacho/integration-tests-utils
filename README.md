@@ -16,10 +16,11 @@
 
 ```
 #!/bin/bash
-if [ ! -d target/3rd/integration-tests-utils ]; then
-    mkdir -p target/3rd/;cd target/3rd/;git clone https://github.com/sbonacho/integration-tests-utils.git;cd -
+TOOL_HOME=target/3rd
+if [ ! -d ${TOOL_HOME}/integration-tests-utils ]; then
+    mkdir -p ${TOOL_HOME};cd ${TOOL_HOME};git clone https://github.com/sbonacho/integration-tests-utils.git;cd -
 fi
-./target/3rd/integration-tests-utils/xint.sh $*
+${TOOL_HOME}/integration-tests-utils/xint.sh $*
 ```
 - To install and start environment run: 
 

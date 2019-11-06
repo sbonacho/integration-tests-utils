@@ -74,4 +74,4 @@ cd -
 if [ "`docker network ls|grep xeda-local`" =  "" ]; then
     docker network create xeda-local
 fi
-docker-compose -f docker-compose.yml -f target/3rd/integration-tests-utils/docker-compose.yml up -d
+docker-compose -f docker-compose.yml -f ${TARGET}/integration-tests-utils/docker-compose.yml up -d

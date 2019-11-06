@@ -1,28 +1,29 @@
 #!/bin/bash
 
 UTILS_DIR=integration-tests-utils
+TOOL_HOME=target/3rd
 
 configure() {
     if [ ! -e config/karate-config.js ]; then
         mkdir config
-        cp ./bin/${UTILS_DIR}/config/karate-config.js config/
-        cp ./bin/${UTILS_DIR}/config/docker-compose.yml .
+        cp ${TOOL_HOME}/${UTILS_DIR}/config/karate-config.js config/
+        cp ${TOOL_HOME}/${UTILS_DIR}/config/docker-compose.yml .
     fi
 }
 
 start() {
     if [ "`docker ps|grep event-handler-generic`" = "" ]; then
-        ./bin/${UTILS_DIR}/start.sh
+        ${TOOL_HOME}/${UTILS_DIR}/start.sh
     fi
 }
 
 stop() {
-    docker-compose -f docker-compose.yml -f target/3rd/integration-tests-utils/docker-compose.yml down -v
+    docker-compose -f docker-compose.yml -f ${TOOL_HOME}/integration-tests-utils/docker-compose.yml down -v
 }
 
 runTest(){
     if [ -d tests ] && [ "`docker ps|grep event-handler-generic`" != "" ]; then
-        ./bin/${UTILS_DIR}/runTests.sh
+        ${TOOL_HOME}/${UTILS_DIR}/runTests.sh
     else
         if [ "`docker ps|grep event-handler-generic`" = "" ]; then
             echo "
@@ -48,7 +49,7 @@ runTest(){
 
 case $1 in
     clear)
-        ./bin/${UTILS_DIR}/clear.sh
+        ${TOOL_HOME}/${UTILS_DIR}/clear.sh
       ;;
     test)
         runTest

@@ -18,7 +18,7 @@ KARATE_HOME=https://dl.bintray.com/ptrthomas/karate
 # Zephyr
 
 ZEPHYR_VERSION=0.0.14
-ZEPHYR_JAR=target/3rd/integration-tests-utils/lib/zephyr-sync-cli-${ZEPHYR_VERSION}-SNAPSHOT-all-in-one.jar
+ZEPHYR_JAR=${TARGET}/integration-tests-utils/lib/zephyr-sync-cli-${ZEPHYR_VERSION}-SNAPSHOT-all-in-one.jar
 ZEPHYR_USER=${JIRA_BOT_USER}
 ZEPHYR_PASSWORD=${JIRA_BOT_PASSWORD}
 ZEPHYR_TYPE=cucumber
