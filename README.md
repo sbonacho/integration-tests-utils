@@ -17,7 +17,7 @@
 ```
 #!/bin/bash
 if [ ! -d bin ]; then
-    mkdir bin;cd bin;git clone git@gitlab.platform.xbyorange.com:xbyorange/xeda/integration-tests-utils.git;cd -
+    mkdir bin;cd bin;git clone https://github.com/sbonacho/integration-tests-utils.git;cd -
 fi
 ./bin/integration-tests-utils/xint.sh $*
 ```
