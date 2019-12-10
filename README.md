@@ -6,7 +6,6 @@
 - Karate as BDD testing tool https://github.com/intuit/karate
 - Kafka pixy to interact with kafka https://github.com/mailgun/kafka-pixy
 - Mountebank as mock server http://www.mbtest.org/
-- File reader app to load json files into kafka, using kafka pixy https://gitlab.platform.xbyorange.com/xbyorange/mobile/mobile-file-reader
 
 ## Quick Start
 
@@ -47,7 +46,6 @@ ${TOOL_HOME}/integration-tests-utils/xint.sh $*
 
 ```
 REPOS="
-git@gitlab.platform.xbyorange.com:xbyorange/mobile/mobile-file-reader.git?master?java8mvn
 "
 SMOKE_URL=http://localhost:8085/actuator/health
 ```

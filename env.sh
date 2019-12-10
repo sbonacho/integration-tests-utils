@@ -2,13 +2,7 @@
 
 TARGET="target/3rd"
 TESTS_DIR="tests"
-REPOS="
-git@gitlab.com:OrangeX/BPM/mysql-activiti.git
-git@gitlab.com:OrangeX/backend/xeda/event-handler-generic.git?master?java11mvn
-git@gitlab.com:OrangeX/backend/xeda/xbyorange-finder.git?master?java11mvn
-git@gitlab.com:OrangeX/backend/kafka/xeda-kafka-schemas.git?develop
-git@gitlab.platform.xbyorange.com:xbyorange/mobile/mobile-file-reader.git?master?java8mvn
-"
+REPOS=""
 
 # Karate
 
@@ -28,11 +22,11 @@ ZEPHYR_REPORTS_DIR=target/surefire-reports
 
 # Jira
 
-JIRA_URL=https://jira.si.orange.es/rest/
+JIRA_URL=
 
 # Gitlab
 
-GITLAB_HOST=gitlab-registry.platform.xbyorange.com
+GITLAB_HOST=
 
 # Mongo Connection
 
