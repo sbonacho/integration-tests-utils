@@ -12,7 +12,7 @@ configure() {
 }
 
 start() {
-    if [ "`docker ps|grep event-handler-generic`" = "" ]; then
+    if [ "`docker ps|grep ${TEST_CONTAINER}`" = "" ]; then
         ${TOOL_HOME}/${UTILS_DIR}/start.sh
     fi
 }
@@ -22,10 +22,10 @@ stop() {
 }
 
 runTest(){
-    if [ -d tests ] && [ "`docker ps|grep event-handler-generic`" != "" ]; then
+    if [ -d tests ] && [ "`docker ps|grep ${TEST_CONTAINER}`" != "" ]; then
         ${TOOL_HOME}/${UTILS_DIR}/runTests.sh
     else
-        if [ "`docker ps|grep event-handler-generic`" = "" ]; then
+        if [ "`docker ps|grep ${TEST_CONTAINER}`" = "" ]; then
             echo "
 
         ****************************

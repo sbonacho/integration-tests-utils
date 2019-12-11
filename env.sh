@@ -3,6 +3,7 @@
 TARGET="target/3rd"
 TESTS_DIR="tests"
 REPOS=""
+TEST_CONTAINER=kafka-pixy
 
 # Karate
 
