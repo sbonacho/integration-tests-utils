@@ -32,6 +32,21 @@ services:
     networks:
       - xeda-local
 
+  kafka-manager:
+    image: zenko/kafka-manager:1.3.3.22
+    container_name: kafka-manager
+    ports:
+    - "8080:9000"
+    depends_on:
+    - kafka
+    environment:
+      ZK_HOSTS: zookeeper:2181
+    links:
+      - zookeeper
+      - kafka
+    networks:
+    - xeda-local
+
   kafka-pixy:
     container_name: kafka-pixy
     image: mailgun/kafka-pixy:latest
