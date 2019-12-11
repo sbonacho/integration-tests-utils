@@ -2,6 +2,7 @@
 
 UTILS_DIR=integration-tests-utils
 TOOL_HOME=target/3rd
+TEST_CONTAINER=kafka-pixy
 
 configure() {
     if [ ! -e config/karate-config.js ]; then
