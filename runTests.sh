@@ -4,7 +4,7 @@ source target/3rd/integration-tests-utils/env.sh
 
 docker exec -it mongodb mongo -u ${MONGO_USER} -p ${MONGO_PASS} ${MONGO_DB} --eval "${DROP_DATABASES}"
 
-if [ ! -e "target/karate.jar" ]; then
+if [[ ! -e "target/karate.jar" ]]; then
     mkdir -p target
     curl -L -o target/karate.jar  ${KARATE_HOME}/karate-${KARATE_VERSION}.jar
 fi
@@ -13,9 +13,9 @@ BASE_CLASSPATH=../../config:../../target/karate.jar
 
 find ${TESTS_DIR} -name target|xargs rm -rf
 
-if [ "$SMOKE_URL" != "" ]; then
+if [[ "$SMOKE_URL" != "" ]]; then
     echo "Waiting for ${SMOKE_URL} availability"
-    while [ "$CODE" != "200" ]; do
+    while [[ "$CODE" != "200" ]]; do
         CODE=`curl -s -I ${SMOKE_URL} |grep HTTP|awk '{print $2}'`
         echo -ne "."
         sleep 5
@@ -41,7 +41,7 @@ for epic in `ls ${TESTS_DIR}`; do
 "
     CLASSPATH=${BASE_CLASSPATH}
     JIRA_SKIPPED=false
-    if [ -e "${TESTS_DIR}/${epic}/epic.config" ]; then
+    if [[ -e "${TESTS_DIR}/${epic}/epic.config" ]]; then
         source ${TESTS_DIR}/${epic}/epic.config
         CLASSPATH=${CLASSPATH}:${CLASSPATH_ADDED}
     fi
@@ -51,7 +51,7 @@ for epic in `ls ${TESTS_DIR}`; do
         cd -
     done
 
-    if [ "${JIRA_SKIPPED}" = "false" ]; then
+    if [[ "${JIRA_SKIPPED}" = "false" ]]; then
         for report in `ls ${TESTS_DIR}/${epic}/${ZEPHYR_REPORTS_DIR}|grep json|grep -v txt`; do
             java -jar ${ZEPHYR_JAR} \
              --username=${ZEPHYR_USER} \
@@ -65,5 +65,4 @@ for epic in `ls ${TESTS_DIR}`; do
              --linkType=Tests
          done
      fi
-
 done
