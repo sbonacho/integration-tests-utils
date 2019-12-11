@@ -48,7 +48,7 @@ go() {
 }
 
 dockerbuild() {
-    if [[ "`docker images|grep $1`" =  "" ]]; then
+    if [[ "`docker images|grep -sw $1`" =  "" ]]; then
         docker build $1 -t $1
     fi
 }
