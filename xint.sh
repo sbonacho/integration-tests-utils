@@ -22,6 +22,14 @@ stop() {
     docker-compose -f docker-compose.yml -f ${TOOL_HOME}/integration-tests-utils/docker-compose.yml down -v
 }
 
+reload(){
+    if [[ "`docker images|grep -w $1`" !=  "" ]]; then
+        docker-compose -f docker-compose.yml -f ${TOOL_HOME}/integration-tests-utils/docker-compose.yml stop $1
+        rm -rf ${TOOL_HOME}/$1
+        docker images|grep -w $1|awk '{print $3}'|xargs docker rmi -f
+    fi
+}
+
 runTest(){
     if [ -d tests ] && [ "`docker ps|grep ${TEST_CONTAINER}`" != "" ]; then
         ${TOOL_HOME}/${UTILS_DIR}/runTests.sh
@@ -57,6 +65,10 @@ case $1 in
       ;;
     stop)
         stop
+      ;;
+    reload)
+        reload $2
+        ${TOOL_HOME}/${UTILS_DIR}/start.sh
       ;;
     configure)
         configure

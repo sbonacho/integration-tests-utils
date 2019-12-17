@@ -74,7 +74,6 @@ for repoline in $REPOS; do
     fi
 done
 
-find . -name .git| xargs rm -rf
 cd -
 
 if [[ "`docker network ls|grep xeda-local`" =  "" ]]; then
