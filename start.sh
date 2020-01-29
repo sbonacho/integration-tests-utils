@@ -21,20 +21,12 @@ if [[ ! -d $TARGET ]]; then
     mkdir -p $TARGET
 fi
 
-java11mvn() {
+javamvn() {
     if [[ "`find $1 -name target`" = "" ]]; then
-        sdk use java 11.0.2-open
+        sdk use java $3
         mvn -f $1 clean package -DskipTest
     fi
 }
-
-java8mvn() {
-    if [[ "`find $1 -name target`" = "" ]]; then
-        sdk use java 8.0.202-zulu
-        mvn -f $1 clean package -DskipTest
-    fi
-}
-
 go() {
     if [[ "`docker images|grep $1`" =  "" ]]; then
         RAIZ="/go/`echo $2|sed 's/git@gitlab.com:OrangeX/src\/gitlab.com/'|sed 's/\.git//'`"
@@ -59,13 +51,14 @@ for repoline in $REPOS; do
     REPO=`echo $repoline|cut -d"?" -f 1`
     BRANCH=`echo $repoline|cut -d"?" -f 2`
     BUILD=`echo $repoline|cut -d"?" -f 3`
+    VERSION=`echo $repoline|cut -d"?" -f 4`
     DIR=`echo $REPO|rev | cut -d"/" -f 1 | rev|cut -d"." -f 1`
     if [[ "`echo $repoline|grep ?`" != "" ]]; then
         if [[ ! -d $DIR ]]; then
             git clone -b $BRANCH $REPO
         fi
         if [[ "`echo $BUILD`" != "" ]]; then
-            $BUILD $DIR $REPO
+            $BUILD $DIR $REPO $VERSION
         fi
     else
         if [[ ! -d $DIR ]]; then

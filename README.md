@@ -54,7 +54,8 @@ SMOKE_URL=http://localhost:8085/actuator/health
 
 1. Gitlab repository
 2. Branch/tag/commit Id
-3. Build method: **java8mvn / java11mvn / go**  
+3. Build method: **javamvn / go** 
+4. Version: **sdk java version** 
 
 `SMOKE_URL`: Used for smoke testing before start running all tests
 
